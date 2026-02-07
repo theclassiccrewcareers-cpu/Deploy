@@ -11,14 +11,13 @@
         }
     ],
     "outputDirectory": ".",
-    "rewrites": [
+    "routes": [
         {
-            "source": "/(.*\\.(js|css|png|jpg|jpeg|svg|json|ico))",
-            "destination": "/$1"
+            "handle": "filesystem"
         },
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }
