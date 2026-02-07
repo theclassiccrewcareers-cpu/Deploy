@@ -2621,7 +2621,7 @@ function switchView(viewId, updateHistory = true) {
     }
 
     if (viewId === 'assignment-view-view') {
-        if (typeof loadAssignments === 'function') loadAssignments();
+        loadAssignmentsView();
     }
 
     // Update Browser History
