@@ -18,21 +18,21 @@ Google authentication works on localhost but fails on the production server beca
 In the **Authorized JavaScript origins** section, add:
 - `http://localhost:8000` (should already be there)
 - `http://127.0.0.1:8000` (should already be there)
-- `https://backend1-bzh1.onrender.com` ⬅️ **ADD THIS**
-- `https://www.backend1-bzh1.onrender.com` (if you use www subdomain)
+- `https://nexuxbackend.onrender.com` ⬅️ **ADD THIS**
+- `https://www.nexuxbackend.onrender.com` (if you use www subdomain)
 
 ### Step 4: Add Authorized Redirect URIs
 In the **Authorized redirect URIs** section, add:
 - `http://localhost:8000` (should already be there)
-- `https://backend1-bzh1.onrender.com` ⬅️ **ADD THIS**
-- `https://www.backend1-bzh1.onrender.com` (if you use www subdomain)
+- `https://nexuxbackend.onrender.com` ⬅️ **ADD THIS**
+- `https://www.nexuxbackend.onrender.com` (if you use www subdomain)
 
 ### Step 5: Save Changes
 1. Click **Save** at the bottom of the page
 2. Wait 1-2 minutes for changes to propagate
 
 ### Step 6: Test on Production
-1. Visit your production URL: `https://backend1-bzh1.onrender.com`
+1. Visit your production URL: `https://nexuxbackend.onrender.com`
 2. Try logging in with Google
 3. It should now work!
 
@@ -79,7 +79,7 @@ If you want to use environment variables for the Client ID (recommended for secu
 
 ## Current Configuration
 - **Client ID**: `275674033514-uuq15prqbvrc0e31d2c0cahb0qbm36eh.apps.googleusercontent.com`
-- **Production URL**: `https://backend1-bzh1.onrender.com`
+- **Production URL**: `https://nexuxbackend.onrender.com`
 - **Local URL**: `http://localhost:8000`
 
 ## Security Note

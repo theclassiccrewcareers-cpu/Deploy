@@ -8,11 +8,11 @@ If you've already added the URL but it's still not working, check these:
 **Go to**: https://console.cloud.google.com/apis/credentials
 
 **Check "Authorized JavaScript origins":**
-- Must have EXACTLY: `https://backend1-bzh1.onrender.com`
-- ❌ NOT: `http://backend1-bzh1.onrender.com` (wrong protocol)
-- ❌ NOT: `https://backend1-bzh1.onrender.com/` (trailing slash)
-- ❌ NOT: `backend1-bzh1.onrender.com` (missing protocol)
-- ✅ YES: `https://backend1-bzh1.onrender.com` (correct!)
+- Must have EXACTLY: `https://nexuxbackend.onrender.com`
+- ❌ NOT: `http://nexuxbackend.onrender.com` (wrong protocol)
+- ❌ NOT: `https://nexuxbackend.onrender.com/` (trailing slash)
+- ❌ NOT: `nexuxbackend.onrender.com` (missing protocol)
+- ✅ YES: `https://nexuxbackend.onrender.com` (correct!)
 
 ### 2. Check Both Sections
 Make sure you added it to **BOTH**:
@@ -35,9 +35,9 @@ Make sure you added it to **BOTH**:
 
 ### 6. Verify You're Accessing the Correct URL
 Make sure you're visiting:
-- ✅ `https://backend1-bzh1.onrender.com`
-- ❌ NOT `http://backend1-bzh1.onrender.com` (wrong protocol)
-- ❌ NOT `www.backend1-bzh1.onrender.com` (different subdomain)
+- ✅ `https://nexuxbackend.onrender.com`
+- ❌ NOT `http://nexuxbackend.onrender.com` (wrong protocol)
+- ❌ NOT `www.nexuxbackend.onrender.com` (different subdomain)
 
 ### 7. Check Browser Console for Exact Error
 1. Open browser Developer Tools (F12)
@@ -58,7 +58,7 @@ Common mistakes:
 1. In Google Cloud Console, **remove** the URL
 2. Click **Save**
 3. Wait 2 minutes
-4. **Add it again** exactly as: `https://backend1-bzh1.onrender.com`
+4. **Add it again** exactly as: `https://nexuxbackend.onrender.com`
 5. Click **Save**
 6. Wait 5 minutes
 7. Test again
@@ -74,13 +74,13 @@ Check that the Client ID in Google Cloud Console matches:
 ```
 http://localhost:8000
 http://127.0.0.1:8000
-https://backend1-bzh1.onrender.com
+https://nexuxbackend.onrender.com
 ```
 
 **Authorized redirect URIs:**
 ```
 http://localhost:8000
-https://backend1-bzh1.onrender.com
+https://nexuxbackend.onrender.com
 ```
 
 ## Still Not Working?
