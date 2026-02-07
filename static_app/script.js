@@ -32,7 +32,7 @@ const isLocal = (
 );
 const API_BASE_URL = isLocal
     ? `http://${window.location.hostname === 'localhost' || !window.location.hostname ? '127.0.0.1' : window.location.hostname}:8000/api`
-    : 'https://backend1-bzh1.onrender.com/api';
+    : 'https://noble-nexus-backend.onrender.com/api';
 
 console.log("ClassBridge API Base URL:", API_BASE_URL);
 // Check if running from file:// which breaks OAuth
@@ -7194,21 +7194,21 @@ function loadMarksForSelectedAssignment() {
             return;
         const assignmentId = select.value;
         if (!assignmentId) {
-        list.innerHTML = `<div class="list-group-item p-4 text-center text-muted">${t('marks_select_prompt')}</div>`;
-        return;
-    }
+            list.innerHTML = `<div class="list-group-item p-4 text-center text-muted">${t('marks_select_prompt')}</div>`;
+            return;
+        }
         list.innerHTML = `<div class="list-group-item p-4 text-center text-muted">${t('msg_loading_submissions')}</div>`;
         try {
             const res = yield fetchAPI(`/assignments/${assignmentId}/submissions`);
             if (!res.ok) {
-            list.innerHTML = `<div class="list-group-item p-4 text-center text-danger">${t('msg_failed_load_submissions')}</div>`;
-            return;
-        }
-        const subs = yield res.json();
-        if (!subs || subs.length === 0) {
-            list.innerHTML = `<div class="list-group-item p-4 text-center text-muted">${t('asg_review_empty')}</div>`;
-            return;
-        }
+                list.innerHTML = `<div class="list-group-item p-4 text-center text-danger">${t('msg_failed_load_submissions')}</div>`;
+                return;
+            }
+            const subs = yield res.json();
+            if (!subs || subs.length === 0) {
+                list.innerHTML = `<div class="list-group-item p-4 text-center text-muted">${t('asg_review_empty')}</div>`;
+                return;
+            }
             list.innerHTML = subs.map(s => `
                 <div class="list-group-item p-3">
                     <div class="d-flex justify-content-between mb-2">
@@ -7227,8 +7227,8 @@ function loadMarksForSelectedAssignment() {
         }
         catch (e) {
             console.error(e);
-        list.innerHTML = `<div class="list-group-item p-4 text-center text-danger">${t('msg_failed_load_submissions')}</div>`;
-    }
+            list.innerHTML = `<div class="list-group-item p-4 text-center text-danger">${t('msg_failed_load_submissions')}</div>`;
+        }
     });
 }
 // 3. Load Assignments (Called when switching to Tab)
