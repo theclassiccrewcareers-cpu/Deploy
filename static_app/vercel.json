@@ -10,5 +10,11 @@
             "use": "@vercel/static"
         }
     ],
-    "outputDirectory": "."
+    "outputDirectory": ".",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
 }
