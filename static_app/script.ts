@@ -2602,36 +2602,49 @@ async function handleUpdatePermission() {
     }
 }
 // --- NAVIGATION & HISTORY MANAGEMENT ---
+// Expose to window for HTML onclick handlers
+(window as any).switchView = switchView;
+
 function switchView(viewId, updateHistory = true) {
+    console.log(`Switching to view: ${viewId}`);
     const viewExists = document.getElementById(viewId);
     if (!viewExists) {
         console.warn(`Attempted to switch to non-existent view: ${viewId}`);
+        // Fallback or Alert? Let's just return for now to avoid crashes
         return;
     }
 
-    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
-    viewExists.classList.add('active');
+    try {
+        document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+        viewExists.classList.add('active');
 
-    // Handle Sidebar Visibility
-    const body = document.body;
-    if (viewId === 'login-view' || viewId === 'register-view' || viewId === 'two-factor-view' || viewId === 'landing-view') {
-        body.classList.add('login-mode');
-    } else {
-        body.classList.remove('login-mode');
+        // Handle Sidebar Visibility
+        const body = document.body;
+        if (viewId === 'login-view' || viewId === 'register-view' || viewId === 'two-factor-view' || viewId === 'landing-view') {
+            body.classList.add('login-mode');
+        } else {
+            body.classList.remove('login-mode');
+        }
+
+        if (viewId === 'assignment-view-view') {
+            if (typeof loadAssignmentsView === 'function') {
+                loadAssignmentsView();
+            } else {
+                console.error("loadAssignmentsView is not defined");
+            }
+        }
+
+        // Update Browser History
+        if (updateHistory) {
+            const newUrl = '#' + viewId;
+            history.pushState({ viewId: viewId }, '', newUrl);
+        }
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+    } catch (e) {
+        console.error("Error in switchView:", e);
     }
-
-    if (viewId === 'assignment-view-view') {
-        loadAssignmentsView();
-    }
-
-    // Update Browser History
-    if (updateHistory) {
-        const newUrl = '#' + viewId;
-        history.pushState({ viewId: viewId }, '', newUrl);
-    }
-
-    // Scroll to top
-    window.scrollTo(0, 0);
 }
 
 // Handle Browser Back/Forward Buttons
