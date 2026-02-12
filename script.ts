@@ -132,11 +132,12 @@ function restoreAuthState() {
     return false;
 }
 
+
 // --- LOCALIZATION & ACCESSIBILITY (FR-17, FR-16) ---
 const translations = {
     en: {
         login_welcome: "Welcome to Noble Nexus",
-        login_subtitle: "Sign in to the Noble Nexus Portal",
+        login_subtitle: "Sign in to Class Bridge",
         label_username: "Username / Student ID",
         label_password: "Password",
         link_forgot_password: "Forgot Password?",
@@ -2814,9 +2815,9 @@ function selectLoginRole(role: string) {
 
     const roleIcon = document.getElementById('login-role-icon');
     const iconMap: { [key: string]: string } = {
-        'Student': 'school',
-        'Teacher': 'person',
-        'Parent': 'family_restroom',
+        'Student': 'backpack',
+        'Teacher': 'school',
+        'Parent': 'home',
         'Principal': 'account_balance',
         'Admin': 'admin_panel_settings'
     };

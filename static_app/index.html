@@ -1832,7 +1832,7 @@
                                 <div class="d-flex justify-content-center gap-3">
                                     <!-- Principal -->
                                     <div class="role-card p-4 rounded-4 cursor-pointer glass-card text-center"
-                                        onclick="selectLoginRole('Principal'); showLogin(); bootstrap.Modal.getInstance(document.getElementById('othersRoleModal')).hide();"
+                                        onclick="selectLoginRole('Principal'); bootstrap.Modal.getInstance(document.getElementById('othersRoleModal')).hide(); showLogin();"
                                         style="flex: 1; min-width: 140px; cursor: pointer; background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.5);">
                                         <div class="d-flex flex-column align-items-center gap-3">
                                             <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle mb-2"
@@ -1846,7 +1846,7 @@
 
                                     <!-- Super Admin -->
                                     <div class="role-card p-4 rounded-4 cursor-pointer glass-card text-center"
-                                        onclick="selectLoginRole('Admin'); showLogin(); bootstrap.Modal.getInstance(document.getElementById('othersRoleModal')).hide();"
+                                        onclick="selectLoginRole('Admin'); bootstrap.Modal.getInstance(document.getElementById('othersRoleModal')).hide(); showLogin();"
                                         style="flex: 1; min-width: 140px; cursor: pointer; background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.5);">
                                         <div class="d-flex flex-column align-items-center gap-3">
                                             <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle mb-2"
@@ -1854,6 +1854,18 @@
                                                 <span class="material-icons" style="font-size: 30px;">badge</span>
                                             </div>
                                             <h6 class="fw-bold m-0" data-i18n="role_super_admin">Super Admin</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="role-card p-4 rounded-4 cursor-pointer glass-card text-center"
+                                        onclick="selectLoginRole('finance_admin'); bootstrap.Modal.getInstance(document.getElementById('othersRoleModal')).hide(); showLogin();"
+                                        style="flex: 1; min-width: 140px; cursor: pointer; background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.5);">
+                                        <div class="d-flex flex-column align-items-center gap-3">
+                                            <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle mb-2"
+                                                style="width: 60px; height: 60px; background: rgba(255,255,255,0.2);">
+                                                <span class="material-icons" style="font-size: 30px;">account_balance_wallet</span>
+                                            </div>
+                                            <h6 class="fw-bold m-0">Finance Admin</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -4338,7 +4350,7 @@
             </div>
         </div>
         <!-- FINANCE VIEW -->
-        <div id="finance-view" class="view">
+        <div id="finance-legacy-view" class="view">
             <h2 class="mb-4 fw-bold">Finance</h2>
             <div class="row g-4 mb-4">
                 <!-- Summary Cards -->
@@ -6045,16 +6057,16 @@
                 <div class="card-header bg-white py-3 border-bottom border-light">
                     <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                            <a class="nav-link active bg-primary text-white shadow-sm rounded-pill px-4"
-                                href="#">Pending
+                            <a id="leave-approval-pending-tab" class="nav-link active bg-primary text-white shadow-sm rounded-pill px-4"
+                                href="#" role="button">Pending
                                 (2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-muted px-4" href="#">History</a>
+                            <a id="leave-approval-history-tab" class="nav-link text-muted px-4" href="#" role="button">History</a>
                         </li>
                     </ul>
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul id="leave-approval-list" class="list-group list-group-flush">
                     <!-- Request 1 -->
                     <li class="list-group-item p-4 border-light">
                         <div class="d-flex justify-content-between align-items-center">
@@ -6751,11 +6763,15 @@
                     <button class="btn btn-primary-custom w-100 rounded-pill mb-3 fw-bold"
                         onclick="switchView('email-compose-view')">Compose</button>
                     <div class="list-group shadow-sm rounded-4 overflow-hidden">
-                        <a href="#" class="list-group-item list-group-item-action active fw-bold">Inbox <span
+                        <a href="#" class="list-group-item list-group-item-action active fw-bold"
+                            onclick="switchView('email-inbox-view'); return false;">Inbox <span
                                 class="badge bg-white text-primary float-end rounded-pill" id="email-inbox-count">0</span></a>
-                        <a href="#" class="list-group-item list-group-item-action">Sent</a>
-                        <a href="#" class="list-group-item list-group-item-action">Drafts</a>
-                        <a href="#" class="list-group-item list-group-item-action">Trash</a>
+                        <a href="#" class="list-group-item list-group-item-action"
+                            onclick="switchView('email-sent-view'); return false;">Sent</a>
+                        <a href="#" class="list-group-item list-group-item-action"
+                            onclick="alert('Drafts feature coming soon.'); return false;">Drafts</a>
+                        <a href="#" class="list-group-item list-group-item-action"
+                            onclick="alert('Trash feature coming soon.'); return false;">Trash</a>
                     </div>
                 </div>
                 <div class="col-md-9">

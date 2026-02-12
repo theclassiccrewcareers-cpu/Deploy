@@ -132,6 +132,7 @@ function restoreAuthState() {
     return false;
 }
 
+
 // --- LOCALIZATION & ACCESSIBILITY (FR-17, FR-16) ---
 const translations = {
     en: {
