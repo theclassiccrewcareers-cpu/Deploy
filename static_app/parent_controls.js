@@ -45,7 +45,13 @@ function renderParentControls() {
         document.getElementById('page-title').textContent = 'Fees & Payments';
     }));
 
-    // 5. Communication
+    // 5. Exam Schedule
+    navList.appendChild(createNavItem('Exam Schedule', 'event', () => {
+        switchView('parent-exam-schedule-view');
+        document.getElementById('page-title').textContent = 'Exam Schedule';
+    }));
+
+    // 6. Communication
     navList.appendChild(createNavItem('Communication', 'forum', () => {
         switchView('parent-communication-view');
         document.getElementById('page-title').textContent = 'Communication';
